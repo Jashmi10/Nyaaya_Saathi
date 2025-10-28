@@ -31,3 +31,18 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# macOS system files
+.DS_Store
+
+# IntelliJ project files
+.idea/
+
+# Logs and temporary
+*.log
+target/
+
