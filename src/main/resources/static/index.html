@@ -98,17 +98,7 @@
                 <p class="feature-description">Get connected with verified legal experts or organizations best suited to support your case.</p>
             </div>
         </div>
-    </div>
-</section>
-<h2>Describe your situation</h2>
-<!-- Analyze Your Situation Section -->
-<section class="analyze-section" id="analyze">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Analyze Your Situation.</h2>
-            <p class="section-description">Get instant legal insights and guidance tailored to your issue.</p>
-        </div>
-
+        <br><br>  <!-- adds two line breaks -->
         <!-- User input form -->
         <form action="/search-laws" method="post">
             <textarea name="situation" rows="4" cols="50" placeholder="Describe your situation..."></textarea><br><br>
@@ -142,7 +132,9 @@
             <p th:text="${error}"></p>
         </div>
     </div>
+    </div>
 </section>
+
 
 
 <!-- Common Issues Section -->
@@ -210,56 +202,25 @@
 <section class="lawyers-section" id="lawyers">
     <div class="container">
         <div class="lawyers-header">
-            <h2 class="section-title">Find a Lawyer.</h2>
-            <button class="btn-primary">Apply Now <i class="fas fa-arrow-right"></i></button>
-        </div>
-        <div class="lawyers-grid">
-            <div class="lawyer-card">
-                <div class="lawyer-number">01</div>
-                <div class="lawyer-info">
-                    <h3 class="lawyer-name">Adv. Priya Sharma</h3>
-                    <p class="lawyer-location">Location: Bangalore, Karnataka</p>
-                    <p class="lawyer-expertise">Expertise: Workplace harassment, Domestic issues</p>
-                    <p class="lawyer-phone">+91 98765 43210</p>
-                </div>
+            <div class="lawyers-header-left">
+                <h2 class="section-title">Find a Lawyer.</h2>
+                <p class="section-description">Type in your location and get legal help with the nearest lawyer.</p>
             </div>
-            <div class="lawyer-card">
-                <div class="lawyer-number">02</div>
-                <div class="lawyer-info">
-                    <h3 class="lawyer-name">Adv. Ananya Iyer</h3>
-                    <p class="lawyer-location">Location: Mumbai, Maharashtra</p>
-                    <p class="lawyer-expertise">Expertise: Cyber abuse, Legal awareness</p>
-                    <p class="lawyer-phone">+91 91234 56789</p>
-                </div>
-            </div>
-            <div class="lawyer-card">
-                <div class="lawyer-number">03</div>
-                <div class="lawyer-info">
-                    <h3 class="lawyer-name">Adv. Ritu Verma</h3>
-                    <p class="lawyer-location">Location: Chennai, Tamil Nadu</p>
-                    <p class="lawyer-expertise">Expertise: Property & financial disputes, Family law</p>
-                    <p class="lawyer-phone">+91 99887 66554</p>
-                </div>
-            </div>
-        </div>
-        <div class="lawyers-image">
-            <img src="images/img.png" alt="Legal Professionals" class="lawyers-hero-image">
-        </div>
-    </div>
-</section>
-<section class="lawyers-section" id="lawyers">
-    <div class="container">
-        <div class="lawyers-header">
-            <h2 class="section-title">Faind a Lawyer</h2>
-            <p class="section-description">Search for lawyers based on your location.</p>
         </div>
 
+        <br><br>
         <div class="search-container">
             <input type="text" id="locationInput" placeholder="Enter your area (e.g., Chennai, Coimbatore)">
+            <br><br><br>
             <button class="btn-primary" onclick="searchLawyers()">Search Lawyer</button>
         </div>
 
         <div id="results" class="lawyers-grid"></div>
+
+        <div class="lawyers-image">
+            <img src="images/img.png" alt="Legal Professionals" class="lawyers-hero-image">
+        </div>
+    </div>
     </div>
 </section>
 
