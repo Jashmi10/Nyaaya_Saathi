@@ -479,7 +479,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-
+//table
 
 // Add hover effect to interactive elements
 document.querySelectorAll('a, button, .feature-card, .issue-card, .lawyer-card').forEach(element => {
