@@ -437,6 +437,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }, index * 200);
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("analyzeForm");
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault(); // stop page reload
+
+    const situation = document.querySelector("textarea[name='situation']").value.trim();
+    const resultsDiv = document.querySelector(".results-table tbody");
+
+    if (!situation) {
+      alert("Please describe your situation first!");
+      return;
+    }
+
+    // Optional loading text
+    resultsDiv.innerHTML = `<tr><td colspan="4">Analyzing your situation...</td></tr>`;
+
+    try {
+      const response = await fetch("/search-laws", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `situation=${encodeURIComponent(situation)}`
+      });
+
+      const html = await response.text();
+
+      // Replace only the table section from the returned HTML
+      const parser = new DOMParser();
+      const newDoc = parser.parseFromString(html, "text/html");
+      const newTableBody = newDoc.querySelector(".results-table tbody");
+      if (newTableBody) {
+        resultsDiv.innerHTML = newTableBody.innerHTML;
+      } else {
+        resultsDiv.innerHTML = `<tr><td colspan="4">No results found.</td></tr>`;
+      }
+
+    } catch (err) {
+      console.error(err);
+      resultsDiv.innerHTML = `<tr><td colspan="4">Error analyzing. Please try again.</td></tr>`;
+    }
+  });
+});
+
 
 // Add hover effect to interactive elements
 document.querySelectorAll('a, button, .feature-card, .issue-card, .lawyer-card').forEach(element => {
