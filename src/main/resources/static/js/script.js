@@ -439,6 +439,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById("analyzeForm");
+  if (!form) {
+    console.warn("⚠️ analyzeForm not found on this page — skipping event binding.");
+    return;
+  }
 
   form.addEventListener("submit", async function(event) {
     event.preventDefault(); // stop page reload
@@ -450,9 +454,29 @@ document.addEventListener("DOMContentLoaded", function() {
       alert("Please describe your situation first!");
       return;
     }
+// Ensure the results table exists
+if (!resultsDiv) {
+  const resultsContainer = document.querySelector(".analyze-section .container");
+  const tableHTML = `
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Published Date</th>
+          <th>Commencement Date</th>
+          <th>URL</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  `;
+  resultsContainer.insertAdjacentHTML("beforeend", tableHTML);
+  resultsDiv = document.querySelector(".results-table tbody");
+}
 
-    // Optional loading text
-    resultsDiv.innerHTML = `<tr><td colspan="4">Analyzing your situation...</td></tr>`;
+// Show loading text
+resultsDiv.innerHTML = `<tr><td colspan="4">Analyzing your situation...</td></tr>`;
+
 
     try {
       const response = await fetch("/search-laws", {
@@ -479,7 +503,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
-//table
+
+// Add hover effect to interactive elements
+document.querySelectorAll('a, button, .feature-card, .issue-card, .lawyer-card').forEach(element => {
+  element.addEventListener('mouseenter', () => {
+    element.style.transition = 'all 0.3s ease';
+  });
+});
+
 
 // Add hover effect to interactive elements
 document.querySelectorAll('a, button, .feature-card, .issue-card, .lawyer-card').forEach(element => {
