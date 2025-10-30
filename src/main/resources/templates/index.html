@@ -40,7 +40,7 @@
         <div class="hero-content">
             <h1 class="hero-title">Know Your Rights</h1>
             <div class="hero-image-container">
-                <img src="images/img_1.png" alt="Legal Justice" class="hero-image">
+                <img src="../static/images/img_1.png" alt="Legal Justice" class="hero-image">
             </div>
             <p class="hero-caption">Trusted by women</p>
         </div>
@@ -101,7 +101,9 @@
         <br><br>  <!-- adds two line breaks -->
         <!-- User input form -->
         <form action="/search-laws" method="post">
-            <textarea name="situation" rows="4" cols="50" placeholder="Describe your situation..."></textarea><br><br>
+            <label>
+                <textarea name="situation" rows="4" cols="50" placeholder="Describe your situation..."></textarea>
+            </label><br><br>
             <input type="submit" value="Find Relevant Laws" class="btn-primary">
         </form>
 
@@ -131,7 +133,6 @@
         <div th:if="${error}">
             <p th:text="${error}"></p>
         </div>
-    </div>
     </div>
 </section>
 
@@ -218,7 +219,7 @@
         <div id="results" class="lawyers-grid"></div>
 
         <div class="lawyers-image">
-            <img src="images/img.png" alt="Legal Professionals" class="lawyers-hero-image">
+            <img src="../static/images/img.png" alt="Legal Professionals" class="lawyers-hero-image">
         </div>
     </div>
 </section>
