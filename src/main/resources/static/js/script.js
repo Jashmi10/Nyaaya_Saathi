@@ -1,5 +1,4 @@
-
-Js:// DOM Elements
+// DOM Elements
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 const navbar = document.querySelector('.navbar');
@@ -41,15 +40,6 @@ window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const navLogo = document.querySelector('.nav-logo');
     const navCta = document.querySelector('.nav-cta');
-
-    <button id="loginBtn">Login</button>
-
-    <script>
-        document.getElementById("loginBtn").addEventListener("click", function() {
-            window.open("/login", "_blank"); // Opens login page in a new tab
-        });
-    </script>
-
 
     if (window.scrollY > 100) {
         // Hide logo and CTA button when scrolled past hero section
@@ -450,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Add hover effect to interactive elements
 document.querySelectorAll('a, button, .feature-card, .issue-card, .lawyer-card').forEach(element => {
-    element.addEventListener('mouseenter', () => {
+    element.addEventListener('mouse enter', () => {
         element.style.transition = 'all 0.3s ease';
     });
 });
@@ -495,7 +485,7 @@ async function searchLawyers() {
         resultsDiv.innerHTML = "<p>Error fetching lawyers.</p>";
     }
 }
-
+window.searchLawyers = searchLawyers;
 
 // Lazy loading for images
 const imageObserver = new IntersectionObserver((entries) => {
@@ -529,4 +519,5 @@ document.querySelectorAll('img').forEach(img => {
 
 
 console.log('⚖️ Nyaaya Saathi Website Loaded Successfully!');
+
 
