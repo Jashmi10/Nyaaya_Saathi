@@ -39,7 +39,7 @@
     <div class="hero-container">
         <div class="hero-content">
             <h1 class="hero-title">Know Your Rights</h1>
-            <p class="hero-caption">Trusted by women</p>
+            <p class="hero-caption" style="text-align: center;"><br>Not sure where to begin when facing a legal problem? <br><br>We’ll help you understand your rights, explore the laws <br>that protect you, and find the right legal help.<br><br>All with just a few clicks.</p>
         </div>
     </div>
 </section>
@@ -99,7 +99,7 @@
         <!-- User input form -->
         <form id="analyzeForm"  action="/search-laws" method="post">
         <label>
-                <textarea name="situation" rows="4" cols="50" placeholder="Describe your situation..."></textarea>
+                <textarea name="situation" rows="4" cols="50" placeholder="Describe your situation..." style="width: 70%; height: 200px; font-size: 18px; border:2px solid black; border-radius: 8px; padding: 10px;"></textarea>
             </label><br><br>
             <input type="submit" value="Find Relevant Laws" class="btn-primary">
         </form>
@@ -205,14 +205,12 @@
                 <p class="section-description">Type in your location and get legal help with the nearest lawyer.</p>
             </div>
         </div>
-
-        <br><!-- This is a single-line comment -->
         <div class="search-container">
-            <label for="locationInput"></label><input type="text" id="locationInput" placeholder="Enter your area (e.g., Chennai, Coimbatore)">
+            <label for="locationInput"></label><input type="text" id="locationInput" placeholder="Enter your area (e.g., Chennai, Coimbatore)" style="width: 70%; height: 50px; font-size: 18px; border-radius: 8px; padding: 10px;">
             <br><br><br>
             <button class="btn-primary" onclick="searchLawyers()">Search Lawyer</button>
         </div>
-
+        <br>
         <div id="results" class="lawyers-grid"></div>
     </div>
 </section>
