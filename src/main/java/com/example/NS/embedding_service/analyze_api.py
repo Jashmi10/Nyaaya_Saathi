@@ -44,8 +44,27 @@ def analyze():
     cur.close()
     conn.close()
 
-    # Sort and send top 10
-    top_results = sorted(results, key=lambda x: x['similarity'], reverse=True)[:10]
+    # Remove exact duplicate laws
+    unique_results = {}
+
+    for result in results:
+        key = (
+            result["title"],
+            result["publishedDate"],
+            result["commencementDate"],
+            result["url"]
+        )
+
+        if key not in unique_results:
+            unique_results[key] = result
+
+    # Sort unique laws by similarity and send top 10
+    top_results = sorted(
+        unique_results.values(),
+        key=lambda x: x["similarity"],
+        reverse=True
+    )[:10]
+
     return jsonify(top_results)
 
 if __name__ == '__main__':
